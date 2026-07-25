@@ -16,7 +16,7 @@ sys.path.insert(0, str(Path(__file__).parent))
 st.set_page_config(
     page_title  = "delta-chat | Document Delta & Chat",
     page_icon   = "📄",
-    layout      = "wide",
+    layout      = "centered",
     initial_sidebar_state = "expanded",
 )
 
@@ -41,22 +41,6 @@ st.markdown("""
   .metric-card {
     background: #161a21; border: 1px solid #2a323e;
     border-radius: 12px; padding: 14px 18px; text-align: center;
-  }
-  /* ChatGPT-style: constrain messages to same width as input */
-  .block-container {
-    max-width: 860px !important;
-    padding-left: 2rem !important;
-    padding-right: 2rem !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-  }
-  /* Fixed stBottom can't use margin:auto — use left+transform instead */
-  section[data-testid="stBottom"] {
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-    width: 100% !important;
-    max-width: 860px !important;
-    padding: 0 2rem !important;
   }
 </style>
 """, unsafe_allow_html=True)
