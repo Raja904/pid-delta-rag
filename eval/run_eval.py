@@ -1,4 +1,4 @@
-﻿"""
+"""
 eval/run_eval.py
 Evaluation harness. Prints a scorecard.
 Usage: python eval/run_eval.py
@@ -57,6 +57,7 @@ def eval_delta_pair(pair_dir: Path) -> dict | None:
     try:
         doc_a = registry.ingest(doc_a_path, pid=doc_a_path.stem, revision="A")
         doc_b = registry.ingest(doc_b_path, pid=doc_b_path.stem, revision="B")
+        
         predicted = delta_engine.run(doc_a, doc_b)
     except Exception as e:
         console.print(f"[red]Error running delta: {e}[/]")
@@ -172,7 +173,7 @@ def main():
                 chat_tbl.add_row(
                     r["question"][:60] + "..." if len(r["question"])>60 else r["question"],
                     f"[{color}]{score:.2f}[/]",
-                    "✅" if r.get("has_citations") else "❌",
+                    "[Y]" if r.get("has_citations") else "[N]",
                 )
             console.print(chat_tbl)
 

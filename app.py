@@ -153,10 +153,10 @@ if run_btn and file_a and file_b:
     st.rerun()
 
 # ── Main content ──────────────────────────────────────────────────────────────
-tab1, tab2, tab3 = st.tabs(["📊 Delta Report", "💬 Grounded Chat", "🔍 Trace Viewer"])
+app_mode = st.sidebar.radio("Navigation", ["📊 Delta Report", "💬 Grounded Chat", "🔍 Trace Viewer"])
 
-# ── Tab 1: Delta Report ───────────────────────────────────────────────────────
-with tab1:
+# ── Mode 1: Delta Report ───────────────────────────────────────────────────────
+if app_mode == "📊 Delta Report":
     items = st.session_state.delta_items
     doc_a = st.session_state.doc_a
     doc_b = st.session_state.doc_b
@@ -236,8 +236,8 @@ with tab1:
                 mime="application/json",
             )
 
-# ── Tab 2: Chat ───────────────────────────────────────────────────────────────
-with tab2:
+# ── Mode 2: Grounded Chat ────────────────────────────────────────────────────────
+elif app_mode == "💬 Grounded Chat":
     if not st.session_state.indexed:
         st.info("👈 Run the delta analysis first to enable grounded chat.")
     else:
@@ -302,8 +302,8 @@ with tab2:
                         st.error(f"Error: {e}")
                         finish_trace(error=str(e))
 
-# ── Tab 3: Trace Viewer ───────────────────────────────────────────────────────
-with tab3:
+# ── Mode 3: Trace Viewer ────────────────────────────────────────────────────────
+elif app_mode == "🔍 Trace Viewer":
     st.markdown("### 🔍 Request Traces")
     traces_dir = Path("traces")
     trace_files = sorted(traces_dir.glob("*.json"), reverse=True) if traces_dir.exists() else []
