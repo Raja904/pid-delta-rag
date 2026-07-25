@@ -42,13 +42,21 @@ st.markdown("""
     background: #161a21; border: 1px solid #2a323e;
     border-radius: 12px; padding: 14px 18px; text-align: center;
   }
-  /* Align bottom chat input with the chat message block-container */
-  [data-testid="stBottom"] > div {
-    max-width: 1100px !important;
+  /* ChatGPT-style: constrain messages to same width as input */
+  .block-container {
+    max-width: 860px !important;
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
     margin-left: auto !important;
     margin-right: auto !important;
-    padding-left: 1rem;
-    padding-right: 1rem;
+  }
+  /* Fixed stBottom can't use margin:auto — use left+transform instead */
+  section[data-testid="stBottom"] {
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 100% !important;
+    max-width: 860px !important;
+    padding: 0 2rem !important;
   }
 </style>
 """, unsafe_allow_html=True)
