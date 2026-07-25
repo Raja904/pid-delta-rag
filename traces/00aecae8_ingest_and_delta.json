@@ -1,0 +1,40 @@
+{
+  "request_id": "00aecae8",
+  "operation": "ingest_and_delta",
+  "total_latency_s": 470.0534,
+  "total_cost_usd": 0,
+  "total_tokens": 0,
+  "error": "",
+  "metadata": {
+    "pid_a": "eval\\datasets\\pair_01\\doc_a.pdf",
+    "pid_b": "eval\\datasets\\pair_01\\doc_b.pdf"
+  },
+  "stages": [
+    {
+      "name": "ingest_a",
+      "latency_s": 0.0509,
+      "error": ""
+    },
+    {
+      "name": "ingest_b",
+      "latency_s": 3.4488,
+      "error": ""
+    },
+    {
+      "name": "delta",
+      "latency_s": 28.2083,
+      "error": ""
+    },
+    {
+      "name": "report",
+      "latency_s": 0.0586,
+      "error": ""
+    },
+    {
+      "name": "index",
+      "latency_s": 438.265,
+      "error": ""
+    }
+  ],
+  "llm_calls": []
+}

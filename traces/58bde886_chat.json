@@ -1,0 +1,24 @@
+{
+  "request_id": "58bde886",
+  "operation": "chat",
+  "total_latency_s": 2.4454,
+  "total_cost_usd": 0,
+  "total_tokens": 0,
+  "error": "",
+  "metadata": {
+    "question": "What changed for tag 26-KA-902?"
+  },
+  "stages": [
+    {
+      "name": "agent_setup",
+      "latency_s": 0.0458,
+      "error": ""
+    },
+    {
+      "name": "agent_invoke",
+      "latency_s": 2.3954,
+      "error": ""
+    }
+  ],
+  "llm_calls": []
+}

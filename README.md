@@ -16,7 +16,20 @@ The system is built with a 4-layer architecture:
 1. **Adapters**: Handles parsing and spatial bounding box extraction (PyMuPDF, pytesseract, ezdxf).
 2. **Delta Matcher**: Aligns text blocks spatially and structurally to compute the delta.
 3. **Vector Store**: Indexes both the source documents and the computed delta items into ChromaDB.
-4. **Agent Layer**: Uses a LangGraph ReAct implementation with specialized search tools to answer user queries with high precision.
+## 📊 Observability & Telemetry
+
+The system ships with enterprise-grade observability (found in `src/observability/`):
+- **Structured Tracing**: Every request logs a detailed JSON trace to the `traces/` directory, capturing end-to-end execution.
+- **Stage Metrics**: Granular latency timing for Ingestion, Delta computation, Vector Retrieval, and LLM Generation.
+- **LLM Telemetry**: Tracks prompt tokens, completion tokens, model details, and estimated USD cost per query.
+- **Error Visibility**: Any pipeline failures (e.g., OCR limits, LLM timeouts) are gracefully caught and appended to the request trace.
+
+## 🧪 Evaluation Harness
+
+An automated evaluation harness is provided in the `eval/` directory to scientifically measure system improvements:
+- **Delta Scorecard**: Computes Precision, Recall, and F1-Score for the detected changes against a human-labeled `ground_truth.json`.
+- **Chat Groundedness**: Uses a combination of heuristic checks and LLM-as-a-judge to evaluate if the agent's answers are factually correct and properly cited.
+- **Run the Eval**: Simply execute `make eval` to generate the console scorecard and identify regressions.
 
 ## Setup and Installation
 

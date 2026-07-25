@@ -1,0 +1,24 @@
+{
+  "request_id": "4f8ed8c1",
+  "operation": "chat",
+  "total_latency_s": 4.3446,
+  "total_cost_usd": 0,
+  "total_tokens": 0,
+  "error": "Error code: 400 - {'error': {'message': 'The model `llama3-70b-8192` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.', 'type': 'invalid_request_error', 'code': 'model_decommissioned'}}",
+  "metadata": {
+    "question": "What are the main differences between Document A and Document B?"
+  },
+  "stages": [
+    {
+      "name": "retrieval",
+      "latency_s": 3.4822,
+      "error": ""
+    },
+    {
+      "name": "llm_answer",
+      "latency_s": 0.8604,
+      "error": "Error code: 400 - {'error': {'message': 'The model `llama3-70b-8192` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.', 'type': 'invalid_request_error', 'code': 'model_decommissioned'}}"
+    }
+  ],
+  "llm_calls": []
+}

@@ -1,0 +1,24 @@
+{
+  "request_id": "24aadd3c",
+  "operation": "chat",
+  "total_latency_s": 7.3813,
+  "total_cost_usd": 0,
+  "total_tokens": 0,
+  "error": "",
+  "metadata": {
+    "question": "What are the piping requirements for the suction strainer during the commissioni"
+  },
+  "stages": [
+    {
+      "name": "agent_setup",
+      "latency_s": 0.0303,
+      "error": ""
+    },
+    {
+      "name": "agent_invoke",
+      "latency_s": 7.3485,
+      "error": ""
+    }
+  ],
+  "llm_calls": []
+}

@@ -1,0 +1,24 @@
+{
+  "request_id": "f9021cd9",
+  "operation": "chat",
+  "total_latency_s": 5.6479,
+  "total_cost_usd": 0,
+  "total_tokens": 0,
+  "error": "",
+  "metadata": {
+    "question": "What was the change in tag 43BL9019?"
+  },
+  "stages": [
+    {
+      "name": "agent_setup",
+      "latency_s": 0.0785,
+      "error": ""
+    },
+    {
+      "name": "agent_invoke",
+      "latency_s": 5.5648,
+      "error": ""
+    }
+  ],
+  "llm_calls": []
+}

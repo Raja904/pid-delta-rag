@@ -1,0 +1,40 @@
+{
+  "request_id": "fe4b8834",
+  "operation": "ingest_and_delta",
+  "total_latency_s": 234.9696,
+  "total_cost_usd": 0,
+  "total_tokens": 0,
+  "error": "",
+  "metadata": {
+    "pid_a": "Lift Gas compressor-P&ID.pdf",
+    "pid_b": "Export Gas Compressor-P&ID (1).pdf"
+  },
+  "stages": [
+    {
+      "name": "ingest_a",
+      "latency_s": 5.6986,
+      "error": ""
+    },
+    {
+      "name": "ingest_b",
+      "latency_s": 0.2358,
+      "error": ""
+    },
+    {
+      "name": "delta",
+      "latency_s": 29.4364,
+      "error": ""
+    },
+    {
+      "name": "report",
+      "latency_s": 0.0658,
+      "error": ""
+    },
+    {
+      "name": "index",
+      "latency_s": 199.4661,
+      "error": ""
+    }
+  ],
+  "llm_calls": []
+}
