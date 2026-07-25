@@ -1,0 +1,13 @@
+version: '3.8'
+services:
+  delta-chat:
+    build: .
+    ports:
+      - "8501:8501"
+    environment:
+      - GOOGLE_API_KEY=${GOOGLE_API_KEY}
+    volumes:
+      - ./data:/app/data
+      - ./traces:/app/traces
+      - ./reports:/app/reports
+    command: streamlit run app.py --server.address=0.0.0.0
