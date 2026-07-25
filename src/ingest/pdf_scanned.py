@@ -1,4 +1,4 @@
-﻿"""
+"""
 ingest/pdf_scanned.py
 Scanned-PDF adapter: renders each page to an image then runs Tesseract OCR.
 Returns blocks with bounding boxes and per-word OCR confidence.
@@ -26,16 +26,22 @@ class ScannedPDFAdapter(FormatAdapter):
 
     def ingest(self, path: Path, pid: str, revision: str = "") -> CanonicalDocument:
         try:
-            from pdf2image import convert_from_path
+            import fitz
             import pytesseract
             from PIL import Image
         except ImportError as e:
             raise RuntimeError(
-                "ScannedPDFAdapter requires pdf2image, pytesseract, and Pillow. "
-                f"Install them and ensure Tesseract is on PATH. ({e})"
+                "ScannedPDFAdapter requires PyMuPDF (fitz), pytesseract, and Pillow. "
+                f"Ensure Tesseract is on PATH. ({e})"
             )
 
-        pil_pages = convert_from_path(str(path), dpi=DPI)
+        doc = fitz.open(str(path))
+        pil_pages = []
+        for page in doc:
+            pix = page.get_pixmap(dpi=DPI)
+            mode = "RGBA" if pix.alpha else "RGB"
+            img = Image.frombytes(mode, [pix.width, pix.height], pix.samples)
+            pil_pages.append(img)
         pages: list[Page] = []
 
         for page_idx, pil_image in enumerate(pil_pages):
