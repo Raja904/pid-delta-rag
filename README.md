@@ -16,6 +16,16 @@ The system is built with a 4-layer architecture:
 1. **Adapters**: Handles parsing and spatial bounding box extraction (PyMuPDF, pytesseract, ezdxf).
 2. **Delta Matcher**: Aligns text blocks spatially and structurally to compute the delta.
 3. **Vector Store**: Indexes both the source documents and the computed delta items into ChromaDB.
+4. **Agent Layer**: Orchestrates tool selection and manages conversational state using LangGraph.
+
+## 🤖 Agent-Based Chat & Tools Approach
+
+Rather than relying on a naive RAG pipeline that blindly retrieves nearest neighbors, this project implements an autonomous **LangGraph ReAct (Reasoning and Acting) Agent**. The agent dynamically plans its retrieval strategy using the following custom tools:
+- **`semantic_search`**: Utilizes dense vector embeddings to perform fuzzy conceptual searches. It is highly effective for abstract questions like *"Why are straight pipe runs required?"* or *"What are the safety margins?"*
+- **`exact_tag_search`**: Bypasses vector approximation to perform high-precision substring matching on ChromaDB metadata. When an engineer queries a specific component (e.g., *"What changed on valve 26-KA-902?"*), the agent routes to this tool to guarantee zero hallucination on critical engineering IDs.
+
+By dynamically injecting the Delta Report summary into the Agent's state prompt, it maintains global context of the changes (e.g., total modifications vs deletions) while retrieving granular details on demand.
+
 ## 📊 Observability & Telemetry
 
 The system ships with enterprise-grade observability (found in `src/observability/`):
