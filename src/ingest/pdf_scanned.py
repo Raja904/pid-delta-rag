@@ -29,6 +29,13 @@ class ScannedPDFAdapter(FormatAdapter):
             import fitz
             import pytesseract
             from PIL import Image
+            
+            # Windows fallback for Tesseract PATH issue
+            if os.name == 'nt':
+                tess_path = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
+                if os.path.exists(tess_path):
+                    pytesseract.pytesseract.tesseract_cmd = tess_path
+                    
         except ImportError as e:
             raise RuntimeError(
                 "ScannedPDFAdapter requires PyMuPDF (fitz), pytesseract, and Pillow. "
