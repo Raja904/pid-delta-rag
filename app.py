@@ -42,11 +42,6 @@ st.markdown("""
     background: #161a21; border: 1px solid #2a323e;
     border-radius: 12px; padding: 14px 18px; text-align: center;
   }
-  /* Force chat input width to match chat messages and center it */
-  div[data-testid="stChatInput"] {
-    max-width: 730px !important;
-    margin: 0 auto !important;
-  }
 </style>
 """, unsafe_allow_html=True)
 
