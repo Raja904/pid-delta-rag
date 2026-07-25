@@ -18,6 +18,36 @@ The system is built with a 4-layer architecture:
 3. **Vector Store**: Indexes both the source documents and the computed delta items into ChromaDB.
 4. **Agent Layer**: Orchestrates tool selection and manages conversational state using LangGraph.
 
+```mermaid
+graph TD
+    subgraph Ingestion Layer
+        A[PID Rev A] -->|PyMuPDF/OCR| C(Canonical Data)
+        B[PID Rev B] -->|PyMuPDF/OCR| D(Canonical Data)
+    end
+    
+    subgraph Delta Engine
+        C --> E{Matcher Engine}
+        D --> E
+        E -->|Spatial IoU & Sequence| F[Delta JSON / Markdown]
+    end
+
+    subgraph Vector & State
+        C --> G[(ChromaDB)]
+        D --> G
+        F --> G
+    end
+
+    subgraph LangGraph ReAct Agent
+        H[User Query] --> I((Agent Router))
+        I -->|Conceptual| J[Semantic Search Tool]
+        I -->|Component ID| K[Exact Tag Search Tool]
+        J --> G
+        K --> G
+        J -.-> L[Grounded Answer w/ Citations]
+        K -.-> L
+    end
+```
+
 ## 🤖 Agent-Based Chat & Tools Approach
 
 Rather than relying on a naive RAG pipeline that blindly retrieves nearest neighbors, this project implements an autonomous **LangGraph ReAct (Reasoning and Acting) Agent**. The agent dynamically plans its retrieval strategy using the following custom tools:
