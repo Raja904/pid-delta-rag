@@ -1,0 +1,16 @@
+﻿.venv/
+__pycache__/
+*.pyc
+.env
+.chroma_db/
+traces/
+reports/
+data/samples/session/
+.session.json
+*.egg-info/
+dist/
+build/
+
+*.pdf
+ass.html
+

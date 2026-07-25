@@ -1,0 +1,36 @@
+﻿# Core PDF ingestion
+pymupdf>=1.23.0
+pdf2image>=1.17.0
+pytesseract>=0.3.13
+Pillow>=10.0.0
+
+# DWG/DXF
+ezdxf>=1.2.0
+
+# Vector store (RAG) - uses built-in ChromaDB embeddings, no torch needed
+chromadb>=0.5.0
+numpy>=1.26.0
+
+# LLM - Groq (free, fast)
+groq>=0.9.0
+
+# UI
+streamlit>=1.36.0
+
+# Eval metrics
+scikit-learn>=1.4.0
+
+# Utilities
+python-dotenv>=1.0.0
+pydantic>=2.7.0
+rich>=13.7.0
+click>=8.1.0
+
+# Dev / testing
+pytest>=8.0.0
+pytest-cov>=5.0.0
+
+# Agent & Tools
+langgraph>=0.1.19
+langchain-groq>=0.1.6
+langchain-core>=0.2.22

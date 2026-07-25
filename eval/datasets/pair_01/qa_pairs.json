@@ -1,0 +1,18 @@
+﻿[
+  {
+    "question": "What type of compressor system does Document A describe?",
+    "expected_answer_keywords": ["export", "gas", "compressor"]
+  },
+  {
+    "question": "What are the main differences between the two documents?",
+    "expected_answer_keywords": ["compressor", "changed", "different"]
+  },
+  {
+    "question": "What changed between the two P&IDs?",
+    "expected_answer_keywords": ["modified", "changed"]
+  },
+  {
+    "question": "What instruments or valves appear in Document B?",
+    "expected_answer_keywords": ["valve", "pressure", "flow"]
+  }
+]

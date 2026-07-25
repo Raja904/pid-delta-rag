@@ -1,0 +1,41 @@
+﻿{
+  "doc_a": "doc_a.pdf",
+  "doc_b": "doc_b.pdf",
+  "description": "Gas Compressor P&ID (Export) vs Lift Gas Compressor P&ID. Different compressor systems from the same plant.",
+  "provenance": "Real P&ID drawings from workspace. Doc A = Export Gas Compressor, Doc B = Lift Gas Compressor. Both are native PDFs.",
+  "expected_changes": [
+    {
+      "change_type": "modified",
+      "content_type": "title",
+      "old_value": "EXPORT GAS COMPRESSOR",
+      "new_value": "LIFT GAS COMPRESSOR",
+      "description": "Document title/system name changed between two P&ID revisions"
+    },
+    {
+      "change_type": "modified",
+      "content_type": "text",
+      "old_value": "EXPORT",
+      "new_value": "LIFT GAS",
+      "description": "System identifier changed from export to lift gas"
+    }
+  ],
+  "qa_pairs": [
+    {
+      "question": "What type of compressor system does Document A describe?",
+      "expected_answer_keywords": ["export", "gas", "compressor"]
+    },
+    {
+      "question": "What are the main differences between the two documents?",
+      "expected_answer_keywords": ["compressor", "changed", "different"]
+    },
+    {
+      "question": "What changed between the two P&IDs?",
+      "expected_answer_keywords": ["modified", "changed"]
+    }
+  ],
+  "known_failures": [
+    "Delta engine may miss graphical/symbol differences (only text blocks are compared)",
+    "OCR not used for these native PDFs -- if a scanned version were used, confidence would be lower",
+    "Bounding box alignment may be imprecise for multi-column P&ID layouts"
+  ]
+}
