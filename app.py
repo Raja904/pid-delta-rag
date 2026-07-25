@@ -153,7 +153,12 @@ if run_btn and file_a and file_b:
     st.rerun()
 
 # ── Main content ──────────────────────────────────────────────────────────────
-app_mode = st.sidebar.radio("Navigation", ["📊 Delta Report", "💬 Grounded Chat", "🔍 Trace Viewer"])
+app_mode = st.radio(
+    "Navigation", 
+    ["📊 Delta Report", "💬 Grounded Chat", "🔍 Trace Viewer"], 
+    horizontal=True,
+    label_visibility="collapsed"
+)
 
 # ── Mode 1: Delta Report ───────────────────────────────────────────────────────
 if app_mode == "📊 Delta Report":
