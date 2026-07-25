@@ -42,6 +42,14 @@ st.markdown("""
     background: #161a21; border: 1px solid #2a323e;
     border-radius: 12px; padding: 14px 18px; text-align: center;
   }
+  /* Align bottom chat input with the chat message block-container */
+  [data-testid="stBottom"] > div {
+    max-width: 1100px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 </style>
 """, unsafe_allow_html=True)
 
